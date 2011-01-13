@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + "/lib/insert_commands.rb")
+
 class MonkeyNotificationGenerator < Rails::Generator::Base
   
   def add_options!(opt)
@@ -5,7 +7,7 @@ class MonkeyNotificationGenerator < Rails::Generator::Base
   end
   
   def manifest
-    if !api_url_configured? && !options[:api_key]
+    if !api_url_configured? && !options[:api_url]
       puts "Must pass --api-url or create config/initializers/monkey_notification.rb"
       exit
     end
@@ -22,23 +24,12 @@ class MonkeyNotificationGenerator < Rails::Generator::Base
     end
   end
   
-  def ensure_api_url_was_configured
-    if !options[:api_url]
-      puts "Must pass --api-url"
-      exit
-    end
-  end
-  
   def api_url_configured?
     File.exists?('config/initializers/monkey_notification.rb')
   end
   
   def api_url_expression
     "'#{options[:api_url]}'"
-  end
-
-  def generate_initializer
-    template 'initializer.rb', 'config/initializers/monkey_notification.rb'
   end
   
   def capistrano_hook
