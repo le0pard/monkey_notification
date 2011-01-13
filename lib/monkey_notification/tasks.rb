@@ -1,0 +1,13 @@
+namespace :rw_mdn do
+  desc "Notify Monkey about a new deploy."
+  task :deploy => :environment do
+    require 'rw_mdn_tasks'
+    RwMdnTasks.deploy(:rails_env      => ENV['TO'],
+                        :scm_revision   => ENV['REVISION'],
+                        :scm_repository => ENV['REPO'],
+                        :local_username => ENV['USER'],
+                        :branch         => ENV['BRANCH'],
+                        :main_server    => ENV['MAIN_SERVER'],
+                        :api_url        => ENV['API_URL'])
+  end
+end
