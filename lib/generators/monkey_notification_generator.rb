@@ -27,8 +27,8 @@ require 'monkey_notification/capistrano'
     end
   end
   
-  def api_key_expression
-    "'#{options[:api_key]}'"
+  def api_url_expression
+    "'#{options[:api_url]}'"
   end
 
   def generate_initializer

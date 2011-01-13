@@ -31,7 +31,7 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s|
   s.name          = "monkey_notification"
-  s.version       = "0.0.2"
+  s.version       = "0.0.3"
   s.author        = "Alexey Vasileiv"
   s.email         = "alexey.vasiliev@railsware.com"
   s.homepage      = "http://railsware.com/"
