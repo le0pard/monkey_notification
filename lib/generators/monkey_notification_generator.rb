@@ -22,6 +22,7 @@ class MonkeyNotificationGenerator < Rails::Generators::Base
   def append_capistrano_hook
     if File.exists?('config/deploy.rb') && File.exists?('Capfile')
       append_file('config/deploy.rb', <<-HOOK)
+
 require 'monkey_notification/capistrano'
       HOOK
     end
