@@ -7,7 +7,7 @@ require 'rake/gempackagetask'
 desc 'Default: run unit tests.'
 task :default => :test
 
-desc 'Test the rw_mdn plugin.'
+desc 'Test the monkey_notification plugin.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.libs << 'test'
@@ -15,7 +15,7 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
-desc 'Generate documentation for the rw_mdn plugin.'
+desc 'Generate documentation for the monkey_notification plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'MonkeyNotification'

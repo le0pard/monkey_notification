@@ -1,4 +1,4 @@
-# Defines deploy:rw_mdn:notify which will send information about the deploy to Monkey.
+# Defines deploy:monkey_notification:notify which will send information about the deploy to Monkey.
 
 Capistrano::Configuration.instance(:must_exist).load do
   after "deploy",            "deploy:monkey_notification:notify"
