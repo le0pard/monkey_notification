@@ -26,12 +26,13 @@ end
 
 PKG_FILES = FileList[
   '[a-zA-Z]*',
-  'lib/**/*.rb'
+  'lib/**/*.rb',
+  'generators/**/*.*'
 ]
 
 spec = Gem::Specification.new do |s|
   s.name          = "monkey_notification"
-  s.version       = "0.0.4"
+  s.version       = "0.0.5"
   s.author        = "Alexey Vasileiv"
   s.email         = "alexey.vasiliev@railsware.com"
   s.homepage      = "http://railsware.com/"
