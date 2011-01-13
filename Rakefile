@@ -18,7 +18,7 @@ end
 desc 'Generate documentation for the rw_mdn plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'RwMdn'
+  rdoc.title    = 'MonkeyNotification'
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
@@ -30,7 +30,7 @@ PKG_FILES = FileList[
 ]
 
 spec = Gem::Specification.new do |s|
-  s.name          = "rw_mdn"
+  s.name          = "monkey_notification"
   s.version       = "0.0.1"
   s.author        = "Alexey Vasileiv"
   s.email         = "alexey.vasiliev@railsware.com"

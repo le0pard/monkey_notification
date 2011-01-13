@@ -1,10 +1,10 @@
-module RwMdn
+module MonkeyNotification
   # Used to set up and modify settings for the notifier.
   class Configuration
 
     OPTIONS = [:api_url, :environment_name, :project_root, :framework, :proxy_host, :proxy_port, :proxy_user, :proxy_pass].freeze
 
-    # The API key for your project, found on the project edit form.
+    # The API url for your project, found on the project edit form.
     attr_accessor :api_url
     
     attr_accessor :environment_name

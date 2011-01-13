@@ -12,7 +12,7 @@ Capistrano::Configuration.instance(:must_exist).load do
         main_server = fetch(:main_server, "N/A")
         local_user = ENV['USER'] || ENV['USERNAME']
         executable = RUBY_PLATFORM.downcase.include?('mswin') ? 'rake.bat' : 'rake'
-        notify_command = "#{executable} rw_mdn:deploy TO=#{rails_env} REVISION=#{current_revision} REPO=#{repository} USER=#{local_user} BRANCH=#{branch} MAIN_SERVER=#{main_server}"
+        notify_command = "#{executable} monkey_notification:deploy TO=#{rails_env} REVISION=#{current_revision} REPO=#{repository} USER=#{local_user} BRANCH=#{branch} MAIN_SERVER=#{main_server}"
         notify_command << " API_URL=#{ENV['API_URL']}" if ENV['API_URL']
         puts "Notifying Monkey of Deploy (#{notify_command})"
         `#{notify_command}`

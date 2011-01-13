@@ -2,9 +2,9 @@ require 'net/http'
 require 'uri'
 require 'active_support'
 
-module RwMdnTasks
+module MonkeyNotificationTasks
   def self.deploy(opts = {})
-    if RwMdn.configuration.api_url.blank?
+    if MonkeyNotification.configuration.api_url.blank?
       puts "I don't seem to be configured with an Url.  Please check your configuration."
       return false
     end
@@ -14,17 +14,17 @@ module RwMdnTasks
       return false
     end
     
-    api_url = opts.delete(:api_url) || RwMdn.configuration.api_url
+    api_url = opts.delete(:api_url) || MonkeyNotification.configuration.api_url
     
     params = {}
     opts.each {|k,v| params["deploy[#{k}]"] = v }
 
     url = URI.parse(api_url)
 
-    proxy = Net::HTTP.Proxy(RwMdn.configuration.proxy_host,
-                            RwMdn.configuration.proxy_port,
-                            RwMdn.configuration.proxy_user,
-                            RwMdn.configuration.proxy_pass)
+    proxy = Net::HTTP.Proxy(MonkeyNotification.configuration.proxy_host,
+                            MonkeyNotification.configuration.proxy_port,
+                            MonkeyNotification.configuration.proxy_user,
+                            MonkeyNotification.configuration.proxy_pass)
 
     response = proxy.post_form(url, params)
 
