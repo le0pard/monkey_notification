@@ -16,7 +16,7 @@ require 'monkey_notification/railtie' if defined?(Rails::Railtie)
 module MonkeyNotification
   
   def self.initialize
-    RwMdn.configure do |config|
+    MonkeyNotification.configure do |config|
       config.environment_name = RAILS_ENV  if defined?(RAILS_ENV)
       config.project_root     = RAILS_ROOT if defined?(RAILS_ROOT)
       config.framework        = "Rails: #{::Rails::VERSION::STRING}" if defined?(::Rails::VERSION)
