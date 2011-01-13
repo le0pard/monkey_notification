@@ -3,7 +3,7 @@ class MonkeyNotificationGenerator < Rails::Generators::Base
   class_option :api_url, :aliases => "-k", :type => :string, :desc => "Your Monkey Url"
   
   def self.source_root
-    File.expand_path("../../generators/monkey_notification/templates", __FILE__)
+    File.expand_path("../../../generators/monkey_notification/templates", __FILE__)
   end
   
   def install
