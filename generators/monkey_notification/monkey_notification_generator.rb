@@ -7,17 +7,13 @@ class MonkeyNotificationGenerator < Rails::Generator::Base
   end
   
   def manifest
-    if !api_url_configured? && !options[:api_url]
-      puts "Must pass --api-url or create config/initializers/monkey_notification.rb"
-      exit
-    end
     record do |m|
       m.directory 'lib/tasks'
       m.file 'monkey_notification_tasks.rake', 'lib/tasks/monkey_notification_tasks.rake'
       if ['config/deploy.rb', 'Capfile'].all? { |file| File.exists?(file) }
         m.append_to 'config/deploy.rb', capistrano_hook
       end
-      if api_url_expression
+      if options[:api_url] && !api_url_configured?
         m.template 'initializer.rb', 'config/initializers/monkey_notification.rb',
           :assigns => {:api_url => api_url_expression}
       end

@@ -7,18 +7,14 @@ class MonkeyNotificationGenerator < Rails::Generators::Base
   end
   
   def install
-    ensure_api_url_was_configured
     append_capistrano_hook
-    generate_initializer unless api_url_configured?
+    generate_initializer if api_url_need_configured?
   end
   
   private
 
-  def ensure_api_url_was_configured
-    if !api_url_configured? && !options[:api_url]
-      puts "Must pass --api-url or create config/initializers/monkey_notification.rb"
-      exit
-    end
+  def api_url_need_configured?
+    options[:api_url] && api_url_configured?
   end
   
   def append_capistrano_hook

@@ -32,12 +32,12 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s|
   s.name          = "monkey_notification"
-  s.version       = "0.0.6"
+  s.version       = "0.0.7"
   s.author        = "Alexey Vasileiv"
   s.email         = "alexey.vasiliev@railsware.com"
   s.homepage      = "http://railsware.com/"
   s.platform      = Gem::Platform::RUBY
-  s.summary       = "Monkey Notification on Deployment"
+  s.summary       = "Monkey Notification"
   s.description   = "Railsware Monkey Notification Gem"
   s.files         = PKG_FILES.to_a
   s.require_path  = "lib"

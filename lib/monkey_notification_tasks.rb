@@ -4,11 +4,6 @@ require 'active_support'
 
 module MonkeyNotificationTasks
   def self.deploy(opts = {})
-    if MonkeyNotification.configuration.api_url.blank?
-      puts "I don't seem to be configured with an Url.  Please check your configuration."
-      return false
-    end
-
     if opts[:rails_env].blank?
       puts "I don't know to which Rails environment you are deploying (use the TO=production option)."
       return false
@@ -19,7 +14,7 @@ module MonkeyNotificationTasks
     params = {}
     opts.each {|k,v| params["deploy[#{k}]"] = v }
 
-    url = URI.parse(api_url)
+    url = URI.parse(api_url || "http://monkey.railsware.com/api/v1/hook")
 
     proxy = Net::HTTP.Proxy(MonkeyNotification.configuration.proxy_host,
                             MonkeyNotification.configuration.proxy_port,
