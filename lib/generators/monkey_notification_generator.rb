@@ -14,7 +14,7 @@ class MonkeyNotificationGenerator < Rails::Generators::Base
   private
 
   def api_url_need_configured?
-    options[:api_url] && api_url_configured?
+    options[:api_url] && !api_url_configured?
   end
   
   def append_capistrano_hook
